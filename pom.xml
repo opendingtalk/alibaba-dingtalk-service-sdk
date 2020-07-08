@@ -2,17 +2,13 @@
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">  
   <modelVersion>4.0.0</modelVersion>  
-  <groupId>com.taobao.top</groupId>  
+  <groupId>com.dingtalk</groupId>
   <artifactId>alibaba-dingtalk-service-sdk</artifactId>
   <packaging>jar</packaging>  
   <version>1.0.0</version>
   <name>alibaba-dingtalk-service-sdk</name>
   <url>http://maven.apache.org</url>  
-  <parent> 
-    <groupId>com.taobao</groupId>  
-    <artifactId>parent</artifactId>  
-    <version>1.0.1</version> 
-  </parent>  
+
   <dependencies> 
     <dependency> 
       <groupId>junit</groupId>  
