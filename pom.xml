@@ -5,7 +5,7 @@
   <groupId>com.dingtalk</groupId>
   <artifactId>alibaba-dingtalk-service-sdk</artifactId>
   <packaging>jar</packaging>  
-  <version>1.0.0</version>
+  <version>1.0.0-SNAPSHOT</version>
   <name>alibaba-dingtalk-service-sdk</name>
   <url>http://maven.apache.org</url>  
 
