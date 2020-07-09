@@ -12,16 +12,16 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * ÅúÁ¿µ÷ÓÃÌØĞÔ
+ * æ‰¹é‡è°ƒç”¨ç‰¹æ€§
  */
 public abstract class BatchFeature {
 
-    public static final String BATCH_API_HEADER_SPLIT = "top-api-separator"; // ÅúÁ¿APIÓÃ»§×Ô¶¨Òå·Ö¸ô·ûHeader Key
-    public static final String BATCH_API_PUBLIC_PARAMETER = "#PUBLIC#"; // ÅúÁ¿API¹«¹²²ÎÊıÍ·
-    public static final String BATCH_API_DEFAULT_SPLIT = "\r\n-S-\r\n";// ÅúÁ¿APIÄ¬ÈÏ·Ö¸ô·û
+    public static final String BATCH_API_HEADER_SPLIT = "top-api-separator"; // æ‰¹é‡APIç”¨æˆ·è‡ªå®šä¹‰åˆ†éš”ç¬¦Header Key
+    public static final String BATCH_API_PUBLIC_PARAMETER = "#PUBLIC#"; // æ‰¹é‡APIå…¬å…±å‚æ•°å¤´
+    public static final String BATCH_API_DEFAULT_SPLIT = "\r\n-S-\r\n";// æ‰¹é‡APIé»˜è®¤åˆ†éš”ç¬¦
 
     private String batchServerUrl;
-    private String batchApiSeparator; // ×Ô¶¨ÒåÅúÁ¿API·Ö¸ô·û
+    private String batchApiSeparator; // è‡ªå®šä¹‰æ‰¹é‡APIåˆ†éš”ç¬¦
 
     private DefaultTaobaoClient client;
 
@@ -48,7 +48,7 @@ public abstract class BatchFeature {
             throw new ApiException("40", "client-error:api request list is empty");
         }
 
-        // ±¾µØĞ£ÑéÇëÇó²ÎÊı
+        // æœ¬åœ°æ ¡éªŒè¯·æ±‚å‚æ•°
         if (client.isNeedCheckRequest() && batchRequest.getPublicParams().isEmpty()) {
             for (int i = 0; i < requestList.size(); i++) {
                 try {
@@ -59,7 +59,7 @@ public abstract class BatchFeature {
             }
         }
 
-        // Ìí¼ÓĞ­Òé¼¶ÇëÇó²ÎÊı
+        // æ·»åŠ åè®®çº§è¯·æ±‚å‚æ•°
         RequestParametersHolder requestHolder = new RequestParametersHolder();
         TaobaoHashMap protocalMustParams = new TaobaoHashMap();
         protocalMustParams.put(Constants.VERSION, "2.0");
@@ -82,18 +82,18 @@ public abstract class BatchFeature {
         }
         requestHolder.setProtocalOptParams(protocalOptParams);
 
-        // Ìí¼Ó×Ô¶¨Òå·Ö¸ô·û
+        // æ·»åŠ è‡ªå®šä¹‰åˆ†éš”ç¬¦
         String separator = BATCH_API_DEFAULT_SPLIT;
         if (batchApiSeparator != null) {
             batchRequest.putHeaderParam(BATCH_API_HEADER_SPLIT, separator = batchApiSeparator);
         }
-        // ÊÇ·ñĞèÒªÑ¹ËõÏìÓ¦
+        // æ˜¯å¦éœ€è¦å‹ç¼©å“åº”
         if (client.isUseGzipEncoding()) {
             batchRequest.putHeaderParam(Constants.ACCEPT_ENCODING, Constants.CONTENT_ENCODING_GZIP);
         }
 
         try {
-            // Ìí¼Ó¹«¹²ÇëÇóÍ·
+            // æ·»åŠ å…¬å…±è¯·æ±‚å¤´
             if (batchRequest.getPublicMethod() != null) {
                 batchRequest.addPublicParam(Constants.METHOD, batchRequest.getPublicMethod());
             } else {
@@ -102,19 +102,19 @@ public abstract class BatchFeature {
                 }
             }
 
-            // ¹¹½¨ÅúÁ¿ÇëÇóÖ÷Ìå
+            // æ„å»ºæ‰¹é‡è¯·æ±‚ä¸»ä½“
             StringBuilder requestBody = new StringBuilder();
             String publicParamStr = WebUtils.buildQuery(batchRequest.getPublicParams(), Constants.CHARSET_UTF8);
             if (!StringUtils.isEmpty(publicParamStr)) {
                 requestBody.append(BATCH_API_PUBLIC_PARAMETER).append(publicParamStr).append(separator);
             }
 
-            // ×é×°Ã¿¸öAPIµÄÇëÇó²ÎÊı
+            // ç»„è£…æ¯ä¸ªAPIçš„è¯·æ±‚å‚æ•°
             for (int i = 0; i < requestList.size(); i++) {
                 TaobaoRequest<?> request = requestList.get(i);
                 request.setBatchApiOrder(i);
                 Map<String, String> apiParams = request.getTextParams();
-                // Èç¹ûµ¥¸öAPIµÄ·½·¨ºÍÅúÁ¿APIµÄ¹«¹²·½·¨²»Ò»ÖÂ£¬ÄÇÃ´ĞèÒªÉèÖÃµ¥¸öAPIµÄ·½·¨Ãû³Æ
+                // å¦‚æœå•ä¸ªAPIçš„æ–¹æ³•å’Œæ‰¹é‡APIçš„å…¬å…±æ–¹æ³•ä¸ä¸€è‡´ï¼Œé‚£ä¹ˆéœ€è¦è®¾ç½®å•ä¸ªAPIçš„æ–¹æ³•åç§°
                 if (request.getApiMethodName() != null && !request.getApiMethodName().equals(batchRequest.getPublicMethod())) {
                     apiParams.put(Constants.METHOD, request.getApiMethodName());
                 }
@@ -136,10 +136,10 @@ public abstract class BatchFeature {
 
             String apiBody = requestBody.toString();
 
-            // Ìí¼ÓÇ©Ãû²ÎÊı
+            // æ·»åŠ ç­¾åå‚æ•°
             protocalMustParams.put(Constants.SIGN, TaobaoUtils.signTopRequestWithBody(requestHolder, apiBody, client.getAppSecret(), client.getSignMethod()));
 
-            // ·¢ÆğÅúÁ¿ÇëÇó
+            // å‘èµ·æ‰¹é‡è¯·æ±‚
             String sysMustQuery = WebUtils.buildQuery(requestHolder.getProtocalMustParams(), Constants.CHARSET_UTF8);
             String sysOptQuery = WebUtils.buildQuery(requestHolder.getProtocalOptParams(), Constants.CHARSET_UTF8);
             String fullUrl = WebUtils.buildRequestUrl(this.batchServerUrl, sysMustQuery, sysOptQuery);
@@ -150,7 +150,7 @@ public abstract class BatchFeature {
             throw new ApiException(e);
         }
 
-        // ¹¹ÔìÏìÓ¦½âÊÍÆ÷
+        // æ„é€ å“åº”è§£é‡Šå™¨
         List<TaobaoParser<?>> parserList = new ArrayList<TaobaoParser<?>>();
         if (client.isNeedEnableParser()) {
             if (Constants.FORMAT_XML.equals(client.getFormat())) {
@@ -168,7 +168,7 @@ public abstract class BatchFeature {
         batchResponse.setBody(requestHolder.getResponseBody());
 
         String[] responseArray = batchResponse.getBody().split(separator);
-        // ÅúÁ¿APIÔÚ×ßµ¥Í¨µÀÑéÖ¤Ê±Ã»Í¨¹ı£¬ÈçÇ°ÃæÑéÖ¤£¬´ËÊ±Ö»ÓĞÒ»¸ö±¨´íĞÅÏ¢
+        // æ‰¹é‡APIåœ¨èµ°å•é€šé“éªŒè¯æ—¶æ²¡é€šè¿‡ï¼Œå¦‚å‰é¢éªŒè¯ï¼Œæ­¤æ—¶åªæœ‰ä¸€ä¸ªæŠ¥é”™ä¿¡æ¯
         if (responseArray.length > 0 && responseArray.length != requestList.size()) {
             if (client.isNeedEnableParser()) {
                 TaobaoResponse tRsp = (TaobaoResponse) parserList.get(0).parse(responseArray[0], Constants.RESPONSE_TYPE_TOP);
@@ -206,10 +206,10 @@ public abstract class BatchFeature {
     }
 
     /**
-     * ÅĞ¶ÏÅúÁ¿APIÇëÇóÊÇ·ñÈ«²¿ÇëÇóÍ¬Ò»ÖÖÀàĞÍµÄAPI¡£
+     * åˆ¤æ–­æ‰¹é‡APIè¯·æ±‚æ˜¯å¦å…¨éƒ¨è¯·æ±‚åŒä¸€ç§ç±»å‹çš„APIã€‚
      */
     private boolean isSameRequest(List<TaobaoRequest<?>> requestList) {
-        if (requestList != null && requestList.size() > 1) { // Ö»ÓĞÁ½¸ö»òÒÔÉÏµÄÇëÇó²Å¿¼ÂÇºÏ²¢
+        if (requestList != null && requestList.size() > 1) { // åªæœ‰ä¸¤ä¸ªæˆ–ä»¥ä¸Šçš„è¯·æ±‚æ‰è€ƒè™‘åˆå¹¶
             String firstMethod = requestList.get(0).getApiMethodName();
             for (int i = 1; i < requestList.size(); i++) {
                 String currentMethod = requestList.get(i).getApiMethodName();
@@ -222,7 +222,7 @@ public abstract class BatchFeature {
     }
 
     /**
-     * ÉèÖÃÅúÁ¿APIÇëÇóµÄ×Ô¶¨Òå·Ö¸ô·û¡£
+     * è®¾ç½®æ‰¹é‡APIè¯·æ±‚çš„è‡ªå®šä¹‰åˆ†éš”ç¬¦ã€‚
      */
     public void setBatchApiSeparator(String batchApiSeparator) {
         this.batchApiSeparator = batchApiSeparator;

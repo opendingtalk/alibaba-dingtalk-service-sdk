@@ -5,7 +5,7 @@ import com.taobao.api.internal.cluster.ClusterManager;
 import com.taobao.api.internal.util.WebUtils;
 
 /**
- * ÒìµØ¶à»î×Ô¶¯·ÖÅä¼¯Èº¿Í»§¶ËÌØĞÔ
+ * å¼‚åœ°å¤šæ´»è‡ªåŠ¨åˆ†é…é›†ç¾¤å®¢æˆ·ç«¯ç‰¹æ€§
  */
 public abstract class ClusterFeature {
 
