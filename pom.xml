@@ -10,7 +10,7 @@
 
   <name>alibaba-dingtalk-service-sdk</name>
   <url>http://maven.apache.org</url>
-  <description></description>
+  <description>dingtalk service sdk</description>
 
   <distributionManagement>
     <snapshotRepository>
