@@ -77,7 +77,7 @@ public class WebSocketImpl extends WebSocketBase {
      * @param origin the origin
 	 * @param handler the handler
 	 * @param protocols the protocols
-	 * @throws WebSocketException the web socket exception
+	 * @throws com.taobao.api.internal.toplink.embedded.websocket.exception.WebSocketException the web socket exception
 	 */
 	public WebSocketImpl(String url, String origin, WebSocketHandler handler, String... protocols) throws WebSocketException {
 		super(url, origin, handler, protocols);
@@ -89,7 +89,7 @@ public class WebSocketImpl extends WebSocketBase {
    	 * @param url the url
    	 * @param handler the handler
    	 * @param protocols the protocols
-   	 * @throws WebSocketException the web socket exception
+   	 * @throws com.taobao.api.internal.toplink.embedded.websocket.exception.WebSocketException the web socket exception
    	 */
    	public WebSocketImpl(String url, WebSocketHandler handler, String... protocols) throws WebSocketException {
    		super(url, handler, protocols);
@@ -103,7 +103,7 @@ public class WebSocketImpl extends WebSocketBase {
 	 * @param proxy the proxy
 	 * @param handler the handler
 	 * @param protocols the protocols
-	 * @throws WebSocketException the web socket exception
+	 * @throws com.taobao.api.internal.toplink.embedded.websocket.exception.WebSocketException the web socket exception
 	 */
 	public WebSocketImpl(String url, String origin, Proxy proxy, WebSocketHandler handler, String... protocols) throws WebSocketException {
 		super(url, origin, proxy, handler, protocols);
@@ -116,7 +116,7 @@ public class WebSocketImpl extends WebSocketBase {
    	 * @param proxy the proxy
    	 * @param handler the handler
    	 * @param protocols the protocols
-   	 * @throws WebSocketException the web socket exception
+   	 * @throws com.taobao.api.internal.toplink.embedded.websocket.exception.WebSocketException the web socket exception
    	 */
    	public WebSocketImpl(String url, Proxy proxy, WebSocketHandler handler, String... protocols) throws WebSocketException {
    		super(url, proxy, handler, protocols);

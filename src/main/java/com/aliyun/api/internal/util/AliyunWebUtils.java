@@ -318,7 +318,7 @@ public abstract class AliyunWebUtils {
 		conn.setRequestProperty("User-Agent", "top-sdk-java");
 		conn.setRequestProperty("Content-Type", ctype);
 		if (headerMap != null) {
-			for (Entry<String, String> entry : headerMap.entrySet()) {
+			for (Map.Entry<String, String> entry : headerMap.entrySet()) {
 				conn.setRequestProperty(entry.getKey(), entry.getValue());
 			}
 		}

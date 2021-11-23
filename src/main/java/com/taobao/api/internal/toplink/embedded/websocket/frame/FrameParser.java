@@ -112,7 +112,7 @@ public abstract class FrameParser {
 	 *
 	 * @param downloadBuffer the download buffer
 	 * @return the frame
-	 * @throws WebSocketException the web socket exception
+	 * @throws com.taobao.api.internal.toplink.embedded.websocket.exception.WebSocketException the web socket exception
 	 */
 	public Frame parse(ByteBuffer downloadBuffer) throws WebSocketException {
 		ByteBuffer buffer = null;

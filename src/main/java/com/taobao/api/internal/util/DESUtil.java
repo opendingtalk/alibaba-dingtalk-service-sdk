@@ -78,7 +78,7 @@ public class DESUtil {
 			return new String(decrypt(Base64.decode(data), cryptKey.getBytes("UTF-8")), "UTF-8");
 
 		} catch (Exception e) {
-			throw new RuntimeException("decrypt error! please check cryptkey and data");
+			throw new java.lang.RuntimeException("decrypt error! please check cryptkey and data");
 		}
 	}
 
@@ -97,7 +97,7 @@ public class DESUtil {
 		try {
 			return base64Encode(encrypt(password.getBytes("UTF-8"), cryptKey.getBytes("UTF-8")));
 		} catch (Exception e) {
-			throw new RuntimeException("encrypt error!");
+			throw new java.lang.RuntimeException("encrypt error!");
 		}
 	}
 

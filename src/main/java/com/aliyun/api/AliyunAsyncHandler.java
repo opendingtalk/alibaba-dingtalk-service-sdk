@@ -6,6 +6,6 @@ public interface AliyunAsyncHandler<T extends AliyunResponse> {
 
 	public void onError(ApiException exception);
 	
-	public void onSuccess(AliyunRequest<T> request, T response);
+	public void onSuccess(AliyunRequest<T> request,T response);
 	
 }

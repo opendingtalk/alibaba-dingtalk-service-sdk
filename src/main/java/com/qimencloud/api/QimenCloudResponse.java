@@ -3,15 +3,11 @@ package com.qimencloud.api;
 import java.io.Serializable;
 import java.util.Map;
 
-import com.taobao.api.internal.mapping.ApiField;
 import com.taobao.api.internal.mapping.QimenErrorField;
 import com.taobao.api.internal.mapping.TopErrorField;
 
 public class QimenCloudResponse implements Serializable {
 
-    /**
-     *
-     */
     private static final long serialVersionUID = 770433235965977871L;
 
     @TopErrorField("code")

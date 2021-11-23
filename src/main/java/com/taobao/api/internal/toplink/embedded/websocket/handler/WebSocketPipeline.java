@@ -49,7 +49,7 @@ public class WebSocketPipeline {
 	 *
 	 * @param ws the ws
 	 * @param buffer the buffer
-	 * @throws WebSocketException the web socket exception
+	 * @throws com.taobao.api.internal.toplink.embedded.websocket.exception.WebSocketException the web socket exception
 	 */
 	public void sendHandshakeUpstream(WebSocket ws, ByteBuffer buffer) throws WebSocketException {
 		lastChain.nextHandshakeUpstreamHandler(ws, buffer);
@@ -60,7 +60,7 @@ public class WebSocketPipeline {
 	 *
 	 * @param ws the ws
 	 * @param buffer the buffer
-	 * @throws WebSocketException the web socket exception
+	 * @throws com.taobao.api.internal.toplink.embedded.websocket.exception.WebSocketException the web socket exception
 	 */
 	public void sendHandshakeDownstream(WebSocket ws, ByteBuffer buffer) throws WebSocketException {
 		startChain.nextHandshakeDownstreamHandler(ws, buffer);

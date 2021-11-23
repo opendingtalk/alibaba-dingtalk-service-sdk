@@ -60,7 +60,7 @@ public class DefaultQimenCloudClient extends DefaultTaobaoClient implements Qime
             } else {
                 if(realResponseType != null && (realResponseType.equals(Constants.RESPONSE_TYPE_QIMEN)
                         || realResponseType.equals(Constants.RESPONSE_TYPE_QIMEN2))) {
-                    // å¥‡é—¨äº‘ç½‘å…³å›ºå®šsimplify=true
+                    // ÆæÃÅÔÆÍø¹Ø¹Ì¶¨simplify=true
                     parser = new ObjectJsonParser<QimenCloudResponse>(request.getResponseClass(), true);
                 } else {
                     parser = new ObjectJsonParser<QimenCloudResponse>(request.getResponseClass(), this.useSimplifyJson);

@@ -366,7 +366,7 @@ public abstract class WebUtils {
 		conn.setRequestProperty("User-Agent", "top-sdk-java");
 		conn.setRequestProperty("Content-Type", ctype);
 		if (headerMap != null) {
-			for (Entry<String, String> entry : headerMap.entrySet()) {
+			for (Map.Entry<String, String> entry : headerMap.entrySet()) {
 				if(!Constants.TOP_HTTP_DNS_HOST.equals(entry.getKey())){
 					conn.setRequestProperty(entry.getKey(), entry.getValue());
 				}

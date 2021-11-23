@@ -44,7 +44,7 @@ public interface StreamHandler {
 	 * @param ws the ws
 	 * @param buffer the buffer
 	 * @param chain the chain
-	 * @throws WebSocketException the web socket exception
+	 * @throws com.taobao.api.internal.toplink.embedded.websocket.exception.WebSocketException the web socket exception
 	 */
 	public void nextHandshakeUpstreamHandler(WebSocket ws, ByteBuffer buffer, StreamHandlerChain chain) throws WebSocketException;
 	
@@ -65,7 +65,7 @@ public interface StreamHandler {
 	 * @param buffer the buffer
 	 * @param frame the frame
 	 * @param chain the chain
-	 * @throws WebSocketException the web socket exception
+	 * @throws com.taobao.api.internal.toplink.embedded.websocket.exception.WebSocketException the web socket exception
 	 */
 	public void nextUpstreamHandler(WebSocket ws, ByteBuffer buffer, Frame frame, StreamHandlerChain chain) throws WebSocketException;
 	

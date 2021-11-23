@@ -88,7 +88,7 @@ public class StreamHandlerChain {
 	 * @param ws the ws
 	 * @param buffer the buffer
 	 * @param frame the frame
-	 * @throws WebSocketException the web socket exception
+	 * @throws com.taobao.api.internal.toplink.embedded.websocket.exception.WebSocketException the web socket exception
 	 */
 	public void nextUpstreamHandler(WebSocket ws, ByteBuffer buffer, Frame frame) throws WebSocketException {
 		if(prev != null) {
@@ -102,7 +102,7 @@ public class StreamHandlerChain {
 	 * @param ws the ws
 	 * @param buffer the buffer
 	 * @param frame the frame
-	 * @throws WebSocketException the web socket exception
+	 * @throws com.taobao.api.internal.toplink.embedded.websocket.exception.WebSocketException the web socket exception
 	 */
 	public void nextDownstreamHandler(WebSocket ws, ByteBuffer buffer, Frame frame) throws WebSocketException {
 		if(next != null){

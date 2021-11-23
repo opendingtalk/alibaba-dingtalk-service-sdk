@@ -29,5 +29,5 @@ public interface AliyunClient {
 	 * @return
 	 * @throws ApiException
 	 */
-	public <T extends AliyunResponse> Future<T> executeAsync(AliyunRequest<T> request, AliyunAsyncHandler<T> asyncHandler) throws ApiException ;
+	public <T extends AliyunResponse> Future<T> executeAsync(AliyunRequest<T> request,AliyunAsyncHandler<T> asyncHandler) throws ApiException ;
 }

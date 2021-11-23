@@ -4,7 +4,6 @@ import com.taobao.api.internal.cluster.ClusterManager;
 import com.taobao.api.internal.cluster.DnsConfig;
 import com.taobao.api.internal.feature.ClusterFeature;
 import com.taobao.api.internal.util.TaobaoHashMap;
-import com.taobao.api.internal.util.WebUtils;
 
 /**
  * 异地多活自动分配集群客户端。
@@ -14,7 +13,6 @@ import com.taobao.api.internal.util.WebUtils;
  */
 public class ClusterTaobaoClient extends DefaultTaobaoClient {
 
-	//赋予异地多活行为
 	private ClusterFeature feature;
 
 	private void initFeature() {
