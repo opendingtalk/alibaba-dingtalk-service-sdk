@@ -1,12 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
-
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">  
-  <modelVersion>4.0.0</modelVersion>  
-  <groupId>com.dingtalk</groupId>  
-  <artifactId>dingtalk-top-sdk</artifactId>  
-  <packaging>jar</packaging>  
-  <version>2.0.0</version>  
-  <name>dingtalk-top-sdk</name>  
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.dingtalk</groupId>
+  <artifactId>dingtalk-top-sdk</artifactId>
+  <packaging>jar</packaging>
+  <version>2.0.0</version>
+  <name>dingtalk-top-sdk</name>
   <url>https://github.com/opendingtalk/alibaba-dingtalk-service-sdk</url>
   <licenses>
     <license>
@@ -36,16 +35,19 @@
     <developerConnection>scm:git:git@github.com:aliyun/dingtalk-sdk.git</developerConnection>
     <url>https://github.com/aliyun/dingtalk-sdk</url>
   </scm>
-  <dependencies> 
-    <dependency> 
-      <groupId>junit</groupId>  
-      <artifactId>junit</artifactId>  
-      <version>4.4</version>  
-      <scope>test</scope> 
-    </dependency>  
-    <dependency> 
-      <groupId>log4j</groupId>  
-      <artifactId>log4j</artifactId>  
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.4</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
       <version>1.2.15</version>
       <exclusions>
         <exclusion>
@@ -65,51 +67,51 @@
           <artifactId>jmxri</artifactId>
         </exclusion>
       </exclusions>
-    </dependency>  
-    <dependency> 
-      <groupId>commons-logging</groupId>  
-      <artifactId>commons-logging</artifactId>  
-      <version>1.1.1</version> 
-    </dependency>  
-    <dependency> 
-      <groupId>io.netty</groupId>  
-      <artifactId>netty</artifactId>  
-      <version>3.5.7.Final</version>  
-      <scope>provided</scope> 
-    </dependency>  
-    <dependency> 
-      <groupId>javax.servlet</groupId>  
-      <artifactId>servlet-api</artifactId>  
-      <version>2.5</version>  
-      <scope>provided</scope> 
-    </dependency> 
-  </dependencies>  
-  <build> 
-    <plugins> 
-      <plugin> 
-        <groupId>org.apache.maven.plugins</groupId>  
-        <artifactId>maven-source-plugin</artifactId>  
-        <version>2.4</version>  
-        <executions> 
-          <execution> 
-            <id>attach-sources</id>  
-            <goals> 
-              <goal>jar</goal> 
-            </goals> 
-          </execution> 
-        </executions> 
-      </plugin>  
-      <plugin> 
-        <groupId>org.apache.maven.plugins</groupId>  
-        <artifactId>maven-compiler-plugin</artifactId>  
-        <version>2.4</version>  
-        <configuration> 
-          <source>1.5</source>  
-          <target>1.5</target>  
-          <encoding>UTF-8</encoding>  
-          <compilerArgument/> 
-        </configuration> 
-      </plugin> 
-    </plugins> 
-  </build>  
+    </dependency>
+    <dependency>
+      <groupId>commons-logging</groupId>
+      <artifactId>commons-logging</artifactId>
+      <version>1.1.1</version>
+    </dependency>
+    <dependency>
+      <groupId>io.netty</groupId>
+      <artifactId>netty</artifactId>
+      <version>3.5.7.Final</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>servlet-api</artifactId>
+      <version>2.5</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>2.4</version>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.4</version>
+        <configuration>
+          <source>1.5</source>
+          <target>1.5</target>
+          <encoding>UTF-8</encoding>
+          <compilerArgument/>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>
