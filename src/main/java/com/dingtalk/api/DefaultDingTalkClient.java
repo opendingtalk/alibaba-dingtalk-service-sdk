@@ -24,7 +24,6 @@ import com.taobao.api.internal.util.TaobaoUtils;
 import com.taobao.api.internal.util.WebV2Utils;
 
 /**
- * 钉钉客户端。
  * @author chaohui.zch 2016年11月8日下午2:38:45
  */
 public class DefaultDingTalkClient extends DefaultTaobaoClient implements DingTalkClient {
