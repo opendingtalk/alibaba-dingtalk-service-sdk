@@ -1,8 +1,10 @@
 package com.taobao.api;
 
 import java.io.Serializable;
+import java.util.HashMap;
 import java.util.Map;
 
+import com.taobao.api.internal.mapping.ApiField;
 import com.taobao.api.internal.mapping.DingTalkErrorField;
 import com.taobao.api.internal.mapping.QimenErrorField;
 import com.taobao.api.internal.mapping.TopErrorField;

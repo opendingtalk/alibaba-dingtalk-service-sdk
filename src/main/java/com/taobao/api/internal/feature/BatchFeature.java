@@ -22,6 +22,7 @@ public abstract class BatchFeature {
 
     private String batchServerUrl;
     private String batchApiSeparator; // 自定义批量API分隔符
+
     private DefaultTaobaoClient client;
 
     public void init(String batchServerUrl, final DefaultTaobaoClient client) {

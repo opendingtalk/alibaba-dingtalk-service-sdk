@@ -257,7 +257,7 @@ public class DefaultTaobaoClient implements TaobaoClient {
 
 	private <T extends TaobaoResponse> T parseBody(TaobaoParser<T> parser, TaobaoRequest<T> request, RequestParametersHolder requestHolder) throws ApiException {
     	String body = requestHolder.getResponseBody();
-    	T tRsp = null;
+		T tRsp = null;
 		if (this.needEnableParser) {
 			tRsp = parser.parse(body, getRealResponseType(request.getTopApiFormat() != null ? request.getTopApiFormat() : format,
 					request.getTopResponseType()));

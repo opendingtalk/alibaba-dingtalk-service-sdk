@@ -1,6 +1,20 @@
 package com.taobao.api;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+
 import com.taobao.api.internal.feature.BatchFeature;
+import com.taobao.api.internal.parser.json.ObjectJsonParser;
+import com.taobao.api.internal.parser.xml.ObjectXmlParser;
+import com.taobao.api.internal.util.RequestParametersHolder;
+import com.taobao.api.internal.util.StringUtils;
+import com.taobao.api.internal.util.TaobaoHashMap;
+import com.taobao.api.internal.util.TaobaoLogger;
+import com.taobao.api.internal.util.TaobaoUtils;
+import com.taobao.api.internal.util.WebUtils;
 
 /**
  * 批量API请求客户端。

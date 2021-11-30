@@ -6,9 +6,7 @@ import java.util.Map;
 
 public class HttpResponseData implements Serializable {
 
-	private static final long serialVersionUID = -6975537945058755923L;
-
-	private String body;
+    private String body;
 
     private Map<String, List<String>> headers;
 

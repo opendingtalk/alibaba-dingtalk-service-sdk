@@ -127,18 +127,7 @@ public class Converters {
 					field = getField(clazz, pd);
 				} else {
 					Set<String> stopProps = baseProps.get(clazz.getSuperclass().getName());
-					boolean isImplMethod = false;
-					//判断该方法是否是属于实现类中
-					if(successFields != null) {
-						for (Field implField : successFields) {
-							if(implField.getName().equals(itemName)) {
-								isImplMethod = true;
-								break;
-							}
-						}
-					}
-
-					if (stopProps != null && stopProps.contains(itemName) && !isImplMethod) {
+					if (stopProps != null && stopProps.contains(itemName)) {
 						isErrorParam = true;
 						field = getField(clazz.getSuperclass(), pd);
 					} else {

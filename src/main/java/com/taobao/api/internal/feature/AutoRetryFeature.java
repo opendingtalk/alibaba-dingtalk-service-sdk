@@ -10,10 +10,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * 调用出错自动重试工具。
- *
- * @author fengsheng
- * @since 1.0, 2020-12-30
+ * 自动重试特性
  */
 public abstract class AutoRetryFeature {
 

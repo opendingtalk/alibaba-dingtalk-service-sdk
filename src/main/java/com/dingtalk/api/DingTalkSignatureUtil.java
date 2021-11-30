@@ -23,7 +23,7 @@ public class DingTalkSignatureUtil {
     private static final String NEW_LINE = "\n";
 
 
-    // »ñÈ¡Ç©ÃûËùĞèÒªµÄ×Ö·û´®
+    // è·å–ç­¾åæ‰€éœ€è¦çš„å­—ç¬¦ä¸²
     public static String getCanonicalStringForIsv(Long timestamp, String suiteTicket) {
         StringBuilder canonicalString = new StringBuilder();
         canonicalString.append(timestamp);
@@ -35,9 +35,9 @@ public class DingTalkSignatureUtil {
     }
 
     /**
-     * ¼ÆËãÇ©Ãû
-     * @param canonicalString Ç©Ãû
-     * @param secret Ç©ÃûÃØÔ¿
+     * è®¡ç®—ç­¾å
+     * @param canonicalString ç­¾å
+     * @param secret ç­¾åç§˜é’¥
      * @return
      */
     public static String computeSignature(String canonicalString, String secret) {
@@ -65,7 +65,7 @@ public class DingTalkSignatureUtil {
         }
     }
 
-    // Æ´½Óurl²ÎÊı
+    // æ‹¼æ¥urlå‚æ•°
     public static String paramToQueryString(Map<String, String> params, String charset) {
 
         if (params == null || params.isEmpty()) {
@@ -112,7 +112,7 @@ public class DingTalkSignatureUtil {
     }
 
     /**
-     * Éú³ÉËæ»úÊı
+     * ç”Ÿæˆéšæœºæ•°
      * @return
      */
     public static String getRandomStr(int count) {

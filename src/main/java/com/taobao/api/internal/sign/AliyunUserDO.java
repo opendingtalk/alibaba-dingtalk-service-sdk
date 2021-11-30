@@ -4,8 +4,6 @@ import com.taobao.api.TaobaoResponse;
 
 public class AliyunUserDO extends TaobaoResponse {
 	
-	private static final long serialVersionUID = -6021153685364148238L;
-
 	private String aliyunID;
 	
 	private String aliyunPK;

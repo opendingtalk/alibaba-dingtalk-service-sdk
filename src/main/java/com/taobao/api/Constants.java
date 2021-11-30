@@ -75,13 +75,13 @@ public abstract class Constants {
 	public static final String SIGN_METHOD_HMAC_SHA256 = "hmac-sha256";
 
 	/** SDK版本号 */
-	public static final String SDK_VERSION = "top-sdk-java-dynamicVersionNo";
+	public static final String SDK_VERSION = "top-sdk-java-20200706";
 
 	/** 异步多活SDK版本号 */
-	public static final String SDK_VERSION_CLUSTER = "top-sdk-java-cluster-dynamicVersionNo";
+	public static final String SDK_VERSION_CLUSTER = "top-sdk-java-cluster-20200706";
 	
 	/** httpdns SDK版本号 */
-    public static final String SDK_VERSION_HTTPDNS = "top-sdk-java-httpdns-dynamicVersionNo";
+    public static final String SDK_VERSION_HTTPDNS = "top-sdk-java-httpdns-20200706";
     
     /** httpdns SDK版本号 */
     public static final String QIMEN_SDK_VERSION_HTTPDNS = "top-qimen-sdk-java-httpdns";

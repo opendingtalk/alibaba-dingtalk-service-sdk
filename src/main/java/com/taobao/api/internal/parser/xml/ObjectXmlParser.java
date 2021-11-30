@@ -2,6 +2,7 @@ package com.taobao.api.internal.parser.xml;
 
 import com.taobao.api.ApiException;
 import com.taobao.api.TaobaoParser;
+import com.taobao.api.TaobaoResponse;
 import com.taobao.api.internal.mapping.Converter;
 
 /**
