@@ -6,6 +6,7 @@ import com.taobao.api.internal.feature.ClusterFeature;
 import com.taobao.api.internal.util.TaobaoHashMap;
 import com.taobao.api.internal.util.WebUtils;
 
+@Deprecated
 public class AutoRetryClusterTaobaoClient extends AutoRetryTaobaoClient {
 
 	private ClusterFeature feature;

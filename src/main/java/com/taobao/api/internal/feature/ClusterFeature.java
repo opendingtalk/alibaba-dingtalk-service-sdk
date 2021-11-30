@@ -5,7 +5,7 @@ import com.taobao.api.internal.cluster.ClusterManager;
 import com.taobao.api.internal.util.WebUtils;
 
 /**
- * 异地多活自动分配集群客户端特性
+ * 异地多活自动分配集群客户端特性。
  */
 public abstract class ClusterFeature {
 

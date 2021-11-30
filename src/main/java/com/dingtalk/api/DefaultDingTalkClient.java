@@ -1,19 +1,35 @@
 package com.dingtalk.api;
 
 import java.io.IOException;
+import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.taobao.api.*;
+import com.taobao.api.ApiException;
+import com.taobao.api.ApiRuleException;
+import com.taobao.api.Constants;
+import com.taobao.api.DefaultTaobaoClient;
+import com.taobao.api.FileItem;
+import com.taobao.api.TaobaoParser;
+import com.taobao.api.TaobaoRequest;
+import com.taobao.api.TaobaoResponse;
+import com.taobao.api.TaobaoUploadRequest;
 import com.taobao.api.internal.parser.json.ObjectJsonParser;
-import com.taobao.api.internal.util.*;
+import com.taobao.api.internal.util.HttpResponseData;
+import com.taobao.api.internal.util.RequestParametersHolder;
+import com.taobao.api.internal.util.TaobaoHashMap;
+import com.taobao.api.internal.util.TaobaoLogger;
+import com.taobao.api.internal.util.TaobaoUtils;
+import com.taobao.api.internal.util.WebV2Utils;
 
 /**
  * 钉钉客户端。
  * @author chaohui.zch 2016年11月8日下午2:38:45
  */
 public class DefaultDingTalkClient extends DefaultTaobaoClient implements DingTalkClient {
+
+	protected boolean useJsonString = false; // 是否采用JsonString生成
 
 	public DefaultDingTalkClient(String serverUrl) {
 		super(serverUrl, null, null);
@@ -66,9 +82,16 @@ public class DefaultDingTalkClient extends DefaultTaobaoClient implements DingTa
 				} catch (Exception xe) {
 					throw new ApiException(xe);
 				}
-				localResponse.setErrorCode(e.getErrCode());
-				localResponse.setMsg(e.getErrMsg());
-				return localResponse;
+				try {
+					Class clazz = localResponse.getClass();
+					Method errcodeMethod = clazz.getDeclaredMethod("setErrcode", Long.class);
+					Method errmsgMethod = clazz.getDeclaredMethod("setErrmsg", String.class);
+					errcodeMethod.invoke(localResponse, Long.parseLong(e.getErrCode()));
+					errmsgMethod.invoke(localResponse, e.getErrMsg());
+					return localResponse;
+				}catch (Exception e2){
+					throw new ApiException(e2);
+				}
 			}
 		}
 
@@ -134,14 +157,18 @@ public class DefaultDingTalkClient extends DefaultTaobaoClient implements DingTa
 					for (Map.Entry<String, String> paramEntry : appParams.entrySet()) {
 						String key = paramEntry.getKey();
 						String value = paramEntry.getValue();
-						if(value.startsWith("[") && value.endsWith("]")) {
-							List<Map<String, Object>> childMap = (List<Map<String, Object>>)TaobaoUtils.jsonToObject(value);
-							jsonParams.put(key, childMap);
-						} else if(value.startsWith("{") && value.endsWith("}")) {
-							Map<String, Object> childMap = (Map<String, Object>)TaobaoUtils.jsonToObject(value);
-							jsonParams.put(key, childMap);
-						} else {
+						if(this.useJsonString) {
 							jsonParams.put(key, value);
+						} else {
+							if (value.startsWith("[") && value.endsWith("]")) {
+								List<Map<String, Object>> childMap = (List<Map<String, Object>>) TaobaoUtils.jsonToObject(value);
+								jsonParams.put(key, childMap);
+							} else if (value.startsWith("{") && value.endsWith("}")) {
+								Map<String, Object> childMap = (Map<String, Object>) TaobaoUtils.jsonToObject(value);
+								jsonParams.put(key, childMap);
+							} else {
+								jsonParams.put(key, value);
+							}
 						}
 					}
 
@@ -173,5 +200,13 @@ public class DefaultDingTalkClient extends DefaultTaobaoClient implements DingTa
 			TaobaoLogger.logApiError("_dingtalk_", request.getApiMethodName(), serverUrl, requestHolder.getAllParams(), System.currentTimeMillis() - start, tRsp.getBody());
 		}
 		return tRsp;
+	}
+
+	public boolean isUseJsonString() {
+		return useJsonString;
+	}
+
+	public void setUseJsonString(boolean useJsonString) {
+		this.useJsonString = useJsonString;
 	}
 }

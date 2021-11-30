@@ -1,16 +1,16 @@
 package com.taobao.api.internal.dto;
 
-import com.taobao.api.TaobaoRequest;
-
 import java.io.Serializable;
 import java.util.Map;
 
 /**
- * 请求传输类
+ * API请求参数包装类。
  */
 public class RequestDTO implements Serializable {
 
-    private String apiMethodName;
+	private static final long serialVersionUID = -6013997108307516208L;
+
+	private String apiMethodName;
 
     private String contentType;
 
