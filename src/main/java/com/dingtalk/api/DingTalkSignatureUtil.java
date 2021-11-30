@@ -23,7 +23,7 @@ public class DingTalkSignatureUtil {
     private static final String NEW_LINE = "\n";
 
 
-    // 获取签名所需要的字符串
+    
     public static String getCanonicalStringForIsv(Long timestamp, String suiteTicket) {
         StringBuilder canonicalString = new StringBuilder();
         canonicalString.append(timestamp);
@@ -33,13 +33,7 @@ public class DingTalkSignatureUtil {
 
         return canonicalString.toString();
     }
-
-    /**
-     * 计算签名
-     * @param canonicalString 签名
-     * @param secret 签名秘钥
-     * @return
-     */
+    
     public static String computeSignature(String canonicalString, String secret) {
         try {
             byte[] signData = sign(canonicalString.getBytes(DEFAULT_ENCODING), secret.getBytes(DEFAULT_ENCODING));
@@ -65,7 +59,6 @@ public class DingTalkSignatureUtil {
         }
     }
 
-    // 拼接url参数
     public static String paramToQueryString(Map<String, String> params, String charset) {
 
         if (params == null || params.isEmpty()) {
@@ -112,7 +105,6 @@ public class DingTalkSignatureUtil {
     }
 
     /**
-     * 生成随机数
      * @return
      */
     public static String getRandomStr(int count) {
